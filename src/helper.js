@@ -13,3 +13,17 @@ exports.makeUser = function (first, last) {
   }
 };
 
+exports.executeIfEven = function (number, callback) {
+  if (number % 2 === 0) {
+    callback(number);
+  }
+};
+
+exports.asyncThing = function (callback) {
+  return new Promise((resolve) => { // don't forget to return!
+    setTimeout(() => {
+      callback(); // looks like we will need a spy
+      resolve(7);
+    }, 1000); // will this block the test for a full second??
+  });
+}
