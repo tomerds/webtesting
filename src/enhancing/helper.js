@@ -21,5 +21,6 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const newName = item.enhancement === 0 ? item.name : `[+${item.enhancement}] ${item.name}`;
+  return { ...item, name: newName };
 }
